@@ -32,7 +32,14 @@ export default {
 		Amount: 'Amount',
 		'Installments Quantity': 'Installments Quantity',
 		paid: 'paid',
-		paids: 'paids'
+		paids: 'paids',
+		'Bills already exists': 'Bills already exists',
+		'Error creating bills': 'Error creating bills',
+		'Error deleting bills': 'Error deleting bills',
+		'Error updating bills': 'Error updating bills',
+		'Successfully created bills': 'Successfully created bills',
+		'Successfully deleted bills': 'Successfully deleted bills',
+		'Successfully updated bills': 'Successfully updated bills'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -67,6 +74,13 @@ export default {
 		Amount: 'Valor',
 		'Installments Quantity': 'Quantidade de Parcelas',
 		paid: 'pago',
-		paids: 'pagos'
+		paids: 'pagos',
+		'Bills already exists': 'Contas já existem',
+		'Error creating bills': 'Erro ao criar contas',
+		'Error deleting bills': 'Erro ao excluir contas',
+		'Error updating bills': 'Erro ao atualizar contas',
+		'Successfully created bills': 'Contas criadas com sucesso',
+		'Successfully deleted bills': 'Contas excluídas com sucesso',
+		'Successfully updated bills': 'Contas atualizadas com sucesso'
 	}
 };
