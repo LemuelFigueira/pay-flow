@@ -42,6 +42,10 @@
 		padding-bottom: 1rem;
 	}
 
+	:global footer svg {
+		fill: var(--clr-font);
+	}
+
 	:global footer .center svg {
 		background: var(--clr-primary);
 		fill: var(--clr-gray100);
