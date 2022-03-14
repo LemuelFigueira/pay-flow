@@ -48,8 +48,6 @@
 
 		background: var(--clr-light);
 
-		padding: 1rem;
-
 		width: 100%;
 	}
 
