@@ -8,11 +8,7 @@
 	import { isMounting } from '../stores/mount';
 	import Toast from '../components/Toast.svelte';
 
-	import AiOutlineTable from 'svelte-icons-pack/ai/AiOutlineTable';
-	import AiFillHome from 'svelte-icons-pack/ai/AiFillHome';
-	import AiOutlinePlus from 'svelte-icons-pack/ai/AiOutlinePlus';
-	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import { goHome } from '../stores/router';
+	import Footer from '../components/Footer.svelte';
 
 	const isDark = writable<string>('N');
 
@@ -53,17 +49,7 @@
 			<slot />
 		</main>
 
-		<footer>
-			<button class:pointer={true} class:left={true} class="home" on:click={goHome}>
-				<Icon size="24" src={AiFillHome} />
-			</button>
-			<button class:pointer={true} class:center={true} class="addBill">
-				<Icon size="24" src={AiOutlinePlus} />
-			</button>
-			<button class:pointer={true} class:right={true} class="showBills">
-				<Icon size="24" src={AiOutlineTable} />
-			</button>
-		</footer>
+		<Footer />
 		<Toast />
 	</div>
 {/if}
@@ -86,40 +72,6 @@
 		padding: 0 2rem;
 	}
 
-	footer {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-
-		width: 100%;
-		background: var(--clr-light);
-
-		padding: 1rem;
-	}
-
-	footer .center {
-		padding-bottom: 1rem;
-	}
-
-	:global footer .center svg {
-		background: var(--clr-primary);
-		fill: var(--clr-gray100);
-
-		border-radius: var(--br);
-	}
-
-	footer button {
-		width: max-content;
-	}
-
-	.pointer {
-		cursor: pointer;
-	}
-
-	.pointer:active {
-		transform: scale(0.9);
-	}
-
 	main {
 		flex: 1;
 		display: flex;
@@ -128,11 +80,5 @@
 		max-width: 100vw;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
 	}
 </style>
