@@ -6,6 +6,7 @@
 
 	import Header from '../components/Header.svelte';
 	import { isMounting } from '../stores/mount';
+	import Toast from '../components/Toast.svelte';
 
 	const isDark = writable<string>('N');
 
@@ -51,6 +52,7 @@
 				Visit <a href="https://github.com/LemuelFigueira">Lemuel Figueira</a> to see more projects
 			</p>
 		</footer>
+		<Toast />
 	</div>
 {/if}
 
