@@ -77,15 +77,15 @@ export async function createBillsRecursive(
 	}
 }
 export async function billsFilteredSearch({
-	p_ascordsc,
-	p_id,
-	p_limit,
-	p_name,
-	p_orderby,
-	p_page,
-	p_paid,
-	p_this_month,
-	p_user
+	p_ascordsc = 'asc',
+	p_id = '',
+	p_limit = 10,
+	p_name = '',
+	p_orderby = 'billing_date',
+	p_page = 0,
+	p_paid = '',
+	p_this_month = 's',
+	p_user = ''
 }: BillsFilteredSearchParams) {
 	try {
 		const { data, error, status } = await supabase.rpc('bills_filtered_search', {
