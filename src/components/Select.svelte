@@ -39,10 +39,15 @@
 		font-family: var(--font-family);
 		padding: 0 1rem;
 		width: 100%;
+
+		text-align: center;
 	}
 	main {
 		display: inline-flex;
 		position: relative;
+
+		align-items: center;
+		justify-content: center;
 		background: var(--clr-light);
 		[is-active='S'] {
 			background: var(--clr-primary);
