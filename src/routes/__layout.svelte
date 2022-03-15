@@ -50,7 +50,7 @@
 		</main>
 
 		<Footer />
-		<Toast />
+		<Toast position="top-center" />
 	</div>
 {/if}
 

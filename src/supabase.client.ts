@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { get, writable } from 'svelte/store';
 import { t } from './i18n';
+import { gotoHome } from './stores/router';
 import { toast } from './stores/toast';
 import type { BillsFilteredSearchParams } from './types/bills';
 
@@ -42,8 +43,10 @@ export async function signUp(email: string, name: string, password: string) {
 	);
 }
 
-export function signOut() {
-	return supabase.auth.signOut();
+export async function signOut() {
+	await supabase.auth.signOut();
+
+	gotoHome();
 }
 
 export async function createBillsRecursive(

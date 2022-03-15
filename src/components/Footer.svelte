@@ -1,27 +1,39 @@
 <script lang="ts">
 	import AiOutlineTable from 'svelte-icons-pack/ai/AiOutlineTable';
-	import AiFillHome from 'svelte-icons-pack/ai/AiFillHome';
 	import AiOutlinePlus from 'svelte-icons-pack/ai/AiOutlinePlus';
+	import BiLogOut from 'svelte-icons-pack/bi/BiLogIn';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import { goHome } from '../stores/router';
-
-	export function add() {
-		console.log('adicionar');
-	}
-
-	export function list() {
-		console.log('listar');
-	}
+	import { gotoBills, gotoCreateBills } from '../stores/router';
+	import { isSigned, signOut } from '../supabase.client';
 </script>
 
 <footer>
-	<button class:pointer={true} class:left={true} class="home" on:click={goHome}>
-		<Icon size="24" src={AiFillHome} />
+	<button
+		class:pointer={true}
+		class:left={true}
+		class:hidden={!$isSigned}
+		class="home"
+		on:click={signOut}
+	>
+		<Icon size="24" src={BiLogOut} />
 	</button>
-	<button class:pointer={true} class:center={true} class="addBill" on:click={add}>
+	<button
+		class:pointer={true}
+		class:center={true}
+		class:hidden={!$isSigned}
+		class="addBill"
+		on:click={gotoCreateBills}
+	>
 		<Icon size="24" src={AiOutlinePlus} />
 	</button>
-	<button class:pointer={true} class:right={true} class="showBills" on:click={list}>
+
+	<button
+		class:pointer={true}
+		class:right={true}
+		class:hidden={!$isSigned}
+		class="showBills"
+		on:click={gotoBills}
+	>
 		<Icon size="24" src={AiOutlineTable} />
 	</button>
 </footer>
@@ -63,6 +75,10 @@
 
 	.pointer:active {
 		transform: scale(0.9);
+	}
+
+	.hidden {
+		display: none;
 	}
 
 	@media (min-width: 480px) {

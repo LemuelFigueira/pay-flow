@@ -1,9 +1,9 @@
 <script lang="ts">
-	// import Loading from './loading.svelte';
 	import BiErrorCircle from 'svelte-icons-pack/bi/BiErrorCircle';
 	import HiSolidXCircle from 'svelte-icons-pack/hi/HiSolidXCircle';
 	export let icon: string = '';
 	import Icon from 'svelte-icons-pack';
+	import Loading from './loading.svelte';
 	export let status: string = '';
 	$: if (status === 'error')
 		setTimeout(() => {
@@ -13,8 +13,7 @@
 
 <button on:click>
 	{#if status === 'loading'}
-		<!-- <Loading /> -->
-		Loading..
+		<Loading />
 	{:else if status === 'error'}
 		<Icon className="icon" src={BiErrorCircle} />
 	{:else if icon === 'x'}
@@ -23,7 +22,6 @@
 		<slot />
 	{/if}
 </button>
-© 2022 GitHub, Inc. Terms
 
 <style type="text/scss">
 	button {
