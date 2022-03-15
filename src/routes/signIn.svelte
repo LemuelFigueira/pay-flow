@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 
 	import { writable } from 'svelte/store';
-	import Button from '../components/button.svelte';
+	import Button from '../components/Button.svelte';
 	import TextInput from '../components/TextInput.svelte';
 	import { email, password, status } from '../stores/auth';
 	import { toast } from '../stores/toast';

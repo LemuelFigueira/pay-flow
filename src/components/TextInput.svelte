@@ -20,6 +20,8 @@
 		width: 100%;
 		background: var(--input-background);
 		filter: brightness(0.9);
+
+		color: var(--clr-gray700) !important;
 		&::placeholder {
 			font-size: small;
 			font-weight: 500;

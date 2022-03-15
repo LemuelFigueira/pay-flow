@@ -30,11 +30,12 @@
 		justify-content: center;
 		padding: 0.5rem;
 		font-family: 'Poppins', sans-serif;
+		font-weight: 700;
 		border: 1px solid #ccc;
 		border-radius: var(--br);
 		outline: none;
-		color: var(--text);
-		background: var(--secondary);
+		color: var(--clr-gray100);
+		background: var(--clr-primary);
 		&:hover {
 			filter: brightness(0.95);
 			cursor: pointer;

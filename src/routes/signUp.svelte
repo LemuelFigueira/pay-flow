@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
-	import Button from '../components/button.svelte';
+	import Button from '../components/Button.svelte';
 	import TextInput from '../components/TextInput.svelte';
 	import { email, name, password, status } from '../stores/auth';
 	import { toast } from '../stores/toast';
