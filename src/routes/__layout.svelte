@@ -69,7 +69,7 @@
 
 		color: var(--clr-font);
 
-		padding: 0 2rem;
+		padding: 1rem 2rem 0 2rem;
 	}
 
 	main {
@@ -80,5 +80,7 @@
 		max-width: 100vw;
 		margin: 0 auto;
 		box-sizing: border-box;
+
+		align-items: center;
 	}
 </style>
