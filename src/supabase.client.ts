@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import { get, writable } from 'svelte/store';
 import { t } from './i18n';
 import { toast } from './stores/toast';
+import type { BillsFilteredSearchParams } from './types/bills';
 
 const supabaseUrl = String(import.meta.env.VITE_SVELTE_APP_SUPABASE_URL);
 const supabaseAnonKey = String(import.meta.env.VITE_SVELTE_APP_SUPABASE_ANON_KEY);
@@ -69,6 +70,44 @@ export async function createBillsRecursive(
 		}
 
 		toast.success(get(t)('Successfully created bills'));
+
+		return data;
+	} catch (error) {
+		toast.danger(error.message);
+	}
+}
+export async function billsFilteredSearch({
+	p_ascordsc,
+	p_id,
+	p_limit,
+	p_name,
+	p_orderby,
+	p_page,
+	p_paid,
+	p_this_month,
+	p_user
+}: BillsFilteredSearchParams) {
+	try {
+		const { data, error, status } = await supabase.rpc('bills_filtered_search', {
+			p_id,
+			p_name,
+			p_user,
+			p_paid,
+			p_this_month,
+			p_page,
+			p_limit,
+			p_orderby,
+			p_ascordsc
+		});
+
+		if (error) {
+			switch (status) {
+				default:
+					throw new Error(get(t)('Error retrieving bills'));
+			}
+		}
+
+		toast.success(get(t)('Successfully retrieved bills'));
 
 		return data;
 	} catch (error) {

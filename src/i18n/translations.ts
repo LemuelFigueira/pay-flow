@@ -39,7 +39,9 @@ export default {
 		'Error updating bills': 'Error updating bills',
 		'Successfully created bills': 'Successfully created bills',
 		'Successfully deleted bills': 'Successfully deleted bills',
-		'Successfully updated bills': 'Successfully updated bills'
+		'Successfully updated bills': 'Successfully updated bills',
+		'Error retrieving bills': 'Error retrieving bills',
+		'Successfully retrieved bills': 'Successfully retrieved bills'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -81,6 +83,8 @@ export default {
 		'Error updating bills': 'Erro ao atualizar contas',
 		'Successfully created bills': 'Contas criadas com sucesso',
 		'Successfully deleted bills': 'Contas excluídas com sucesso',
-		'Successfully updated bills': 'Contas atualizadas com sucesso'
+		'Successfully updated bills': 'Contas atualizadas com sucesso',
+		'Error retrieving bills': 'Erro ao recuperar contas',
+		'Successfully retrieved bills': 'Contas recuperadas com sucesso'
 	}
 };
