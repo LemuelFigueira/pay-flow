@@ -4,8 +4,8 @@ export function gotoHome() {
 	goto('/');
 }
 
-export function gotoBills() {
-	goto('/bills');
+export function gotoMonthlyBills() {
+	goto('/bills/month');
 }
 
 export function gotoCreateBills() {
