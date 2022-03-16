@@ -114,8 +114,6 @@ export async function billsFilteredSearch({
 			}
 		}
 
-		toast.success(get(t)('Successfully retrieved bills'));
-
 		return data[0].j;
 	} catch (error) {
 		toast.danger(error.message);

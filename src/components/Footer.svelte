@@ -3,7 +3,12 @@
 	import AiOutlinePlus from 'svelte-icons-pack/ai/AiOutlinePlus';
 	import BiLogOut from 'svelte-icons-pack/bi/BiLogIn';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import { gotoMonthlyBills, gotoCreateBills } from '../stores/router';
+	import {
+		gotoMonthlyBills,
+		gotoCreateBills,
+		isMonthBillsPage,
+		isCreateBillsPage
+	} from '../stores/router';
 	import { isSigned, signOut } from '../supabase.client';
 </script>
 
@@ -21,6 +26,7 @@
 		class:pointer={true}
 		class:center={true}
 		class:hidden={!$isSigned}
+		class:active={$isCreateBillsPage}
 		class="addBill"
 		on:click={gotoCreateBills}
 	>
@@ -31,6 +37,7 @@
 		class:pointer={true}
 		class:right={true}
 		class:hidden={!$isSigned}
+		class:active={$isMonthBillsPage}
 		class="showBills"
 		on:click={gotoMonthlyBills}
 	>
@@ -47,11 +54,11 @@
 		width: 100%;
 		background: var(--clr-light);
 
-		padding: 1rem;
+		margin: 1rem 0;
 	}
 
 	footer .center {
-		padding-bottom: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	:global footer svg {
@@ -81,9 +88,8 @@
 		display: none;
 	}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
+	:global .active {
+		border-bottom: 1px solid var(--clr-primary);
+		border-radius: var(--br);
 	}
 </style>

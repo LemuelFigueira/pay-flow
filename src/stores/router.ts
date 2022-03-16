@@ -20,6 +20,16 @@ export const pageTitle = derived([page, t], ([$page]) => {
 	}
 });
 
+export const isMonthBillsPage = derived(
+	[page, t],
+	([$page]) => $page.url.pathname === '/bills/month'
+);
+
+export const isCreateBillsPage = derived(
+	[page, t],
+	([$page]) => $page.url.pathname === '/bills/create'
+);
+
 export function gotoHome() {
 	goto('/');
 }
