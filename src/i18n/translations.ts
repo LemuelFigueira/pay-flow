@@ -49,8 +49,8 @@ export default {
 		Bill: 'Bill',
 		'Month bills': 'Month bills',
 		'Bill details': 'Bill details',
-		'Create Bill': 'Create Bill',
-		'Create Bills': 'Create Bills',
+		'Create bill': 'Create bill',
+		'Create bills': 'Create bills',
 		Home: 'Home',
 		'Must be signed': 'Must be signed'
 	},
@@ -105,8 +105,8 @@ export default {
 		Bill: 'Conta',
 		'Month bills': 'Contas do Mês',
 		'Bill details': 'Detalhes da Conta',
-		'Create Bill': 'Criar Conta',
-		'Create Bills': 'Criar Contas',
+		'Create bill': 'Criar Conta',
+		'Create bills': 'Criar Contas',
 		Home: 'Início',
 		'Must be signed': 'Você deve estar logado'
 	}
