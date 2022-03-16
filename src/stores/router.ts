@@ -1,4 +1,24 @@
 import { goto } from '$app/navigation';
+import { page } from '$app/stores';
+import { derived, get } from 'svelte/store';
+import { t } from '../i18n';
+
+export const pageTitle = derived([page, t], ([$page]) => {
+	switch ($page.url.pathname) {
+		case '/bills/month':
+			return get(t)('Month bills');
+		case '/bills/create':
+			return get(t)('Create bills');
+		case '/signIn':
+			return get(t)('Sign in');
+		case '/signUp':
+			return get(t)('Sign up');
+		case '/':
+			return get(t)('Home');
+		default:
+			return get(t)('Bills');
+	}
+});
 
 export function gotoHome() {
 	goto('/');

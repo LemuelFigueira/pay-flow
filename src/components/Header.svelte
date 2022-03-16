@@ -7,6 +7,7 @@
 	import { getContext } from 'svelte';
 	import Select from './Select.svelte';
 	import { changeLocale, locale, localesOptions } from '../i18n';
+	import { pageTitle } from '../stores/router';
 
 	const { context: isDarkContext } = getContext('isDark');
 	const { isDark, handleChangeTheme } = isDarkContext;
@@ -18,7 +19,7 @@
 			<a href="/">
 				<div is-dark>
 					<Icon size="36" src={BiSolidStore} />
-					<span>Template</span>
+					<span>{$pageTitle}</span>
 				</div>
 			</a>
 		</div>

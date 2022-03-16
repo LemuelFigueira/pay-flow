@@ -44,7 +44,13 @@ export default {
 		'Successfully updated bills': 'Successfully updated bills',
 		'Error retrieving bills': 'Error retrieving bills',
 		'No bills found': 'No bills found',
-		'Successfully retrieved bills': 'Successfully retrieved bills'
+		'Successfully retrieved bills': 'Successfully retrieved bills',
+		Bills: 'Bills',
+		Bill: 'Bill',
+		'Month bills': 'Month bills',
+		'Bill details': 'Bill details',
+		'Create Bill': 'Create Bill',
+		Home: 'Home'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -92,6 +98,12 @@ export default {
 		'Successfully updated bills': 'Contas atualizadas com sucesso',
 		'Error retrieving bills': 'Erro ao recuperar contas',
 		'No bills found': 'Nenhuma conta encontrada',
-		'Successfully retrieved bills': 'Contas recuperadas com sucesso'
+		'Successfully retrieved bills': 'Contas recuperadas com sucesso',
+		Bills: 'Contas',
+		Bill: 'Conta',
+		'Month bills': 'Contas do Mês',
+		'Bill details': 'Detalhes da Conta',
+		'Create Bill': 'Criar Conta',
+		Home: 'Início'
 	}
 };

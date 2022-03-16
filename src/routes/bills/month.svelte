@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ItemBill from '../../components/ItemBill.svelte';
+
 	import { billsFilteredSearch, isSigned, userStore } from '../../supabase.client';
 
 	async function handleLoadMonthBills() {
@@ -20,11 +22,7 @@
 		<p>...waiting</p>
 	{:then bills}
 		{#each bills as bill}
-			<p>
-				<span>{bill.name}</span>
-				<span>{bill.amount}</span>
-				<span>vence em {bill.billing_date}</span>
-			</p>
+			<ItemBill name={bill.name} amount={bill.amount} billing_date={bill.billing_date} />
 		{/each}
 	{:catch error}
 		<p style="color: red">{error.message}</p>
@@ -39,6 +37,9 @@
 
 		margin-bottom: auto;
 
-		padding: 1rem;
+		padding: 3rem 1rem 1rem 1rem;
+		width: 100%;
+
+		gap: 1rem;
 	}
 </style>
