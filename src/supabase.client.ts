@@ -3,7 +3,7 @@ import { get, writable } from 'svelte/store';
 import { t } from './i18n';
 import { gotoHome } from './stores/router';
 import { toast } from './stores/toast';
-import type { BillsFilteredSearchParams } from './types/bills';
+import type { Bill, BillsFilteredSearchParams } from './types/bills';
 
 const supabaseUrl = String(import.meta.env.VITE_SVELTE_APP_SUPABASE_URL);
 const supabaseAnonKey = String(import.meta.env.VITE_SVELTE_APP_SUPABASE_ANON_KEY);
@@ -82,14 +82,14 @@ export async function createBillsRecursive(
 export async function billsFilteredSearch({
 	p_ascordsc = 'asc',
 	p_id = '',
-	p_limit = 10,
+	p_limit = 30,
 	p_name = '',
 	p_orderby = 'billing_date',
 	p_page = 0,
 	p_paid = '',
 	p_this_month = 's',
 	p_user = ''
-}: BillsFilteredSearchParams) {
+}: BillsFilteredSearchParams): Promise<Bill[]> {
 	try {
 		const { data, error, status } = await supabase.rpc('bills_filtered_search', {
 			p_id,
@@ -103,6 +103,10 @@ export async function billsFilteredSearch({
 			p_ascordsc
 		});
 
+		if (data[0].j === null) {
+			throw new Error(get(t)('No bills found'));
+		}
+
 		if (error) {
 			switch (status) {
 				default:
@@ -112,7 +116,7 @@ export async function billsFilteredSearch({
 
 		toast.success(get(t)('Successfully retrieved bills'));
 
-		return data;
+		return data[0].j;
 	} catch (error) {
 		toast.danger(error.message);
 	}

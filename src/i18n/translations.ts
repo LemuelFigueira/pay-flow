@@ -43,6 +43,7 @@ export default {
 		'Successfully deleted bills': 'Successfully deleted bills',
 		'Successfully updated bills': 'Successfully updated bills',
 		'Error retrieving bills': 'Error retrieving bills',
+		'No bills found': 'No bills found',
 		'Successfully retrieved bills': 'Successfully retrieved bills'
 	},
 	'pt-BR': {
@@ -90,6 +91,7 @@ export default {
 		'Successfully deleted bills': 'Contas excluídas com sucesso',
 		'Successfully updated bills': 'Contas atualizadas com sucesso',
 		'Error retrieving bills': 'Erro ao recuperar contas',
+		'No bills found': 'Nenhuma conta encontrada',
 		'Successfully retrieved bills': 'Contas recuperadas com sucesso'
 	}
 };
