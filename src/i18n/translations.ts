@@ -50,7 +50,9 @@ export default {
 		'Month bills': 'Month bills',
 		'Bill details': 'Bill details',
 		'Create Bill': 'Create Bill',
-		Home: 'Home'
+		'Create Bills': 'Create Bills',
+		Home: 'Home',
+		'Must be signed': 'Must be signed'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -104,6 +106,8 @@ export default {
 		'Month bills': 'Contas do Mês',
 		'Bill details': 'Detalhes da Conta',
 		'Create Bill': 'Criar Conta',
-		Home: 'Início'
+		'Create Bills': 'Criar Contas',
+		Home: 'Início',
+		'Must be signed': 'Você deve estar logado'
 	}
 };

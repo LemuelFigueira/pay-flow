@@ -27,7 +27,7 @@
 	}
 	$: if ($userStore) {
 		setTimeout(() => {
-			goto('/');
+			goto('/bills/month');
 		}, 2000);
 	}
 </script>

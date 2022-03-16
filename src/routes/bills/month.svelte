@@ -1,10 +1,15 @@
 <script lang="ts">
 	import ItemBill from '../../components/ItemBill.svelte';
+	import { t } from '../../i18n';
+	import { gotoHome } from '../../stores/router';
 
-	import { billsFilteredSearch, isSigned, userStore } from '../../supabase.client';
+	import { billsFilteredSearch, isSigned } from '../../supabase.client';
 
 	async function handleLoadMonthBills() {
-		if (!$isSigned) return;
+		if (!$isSigned) {
+			gotoHome();
+			throw new Error($t('Must be signed'));
+		}
 		const response = await billsFilteredSearch({
 			p_this_month: 's',
 			p_page: 0,
@@ -25,7 +30,7 @@
 			<ItemBill name={bill.name} amount={bill.amount} billing_date={bill.billing_date} />
 		{/each}
 	{:catch error}
-		<p style="color: red">{error.message}</p>
+		<span class:error={true}>{error.message}</span>
 	{/await}
 </main>
 
@@ -41,5 +46,14 @@
 		width: 100%;
 
 		gap: 1rem;
+	}
+
+	.error {
+		font-size: x-large;
+
+		color: var(--clr-input-error);
+		font-weight: 700;
+
+		text-align: center;
 	}
 </style>
