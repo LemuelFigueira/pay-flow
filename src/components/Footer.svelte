@@ -26,7 +26,6 @@
 		class:pointer={true}
 		class:center={true}
 		class:hidden={!$isSigned}
-		class:active={$isCreateBillsPage}
 		class="addBill"
 		on:click={gotoCreateBills}
 	>
@@ -37,7 +36,6 @@
 		class:pointer={true}
 		class:right={true}
 		class:hidden={!$isSigned}
-		class:active={$isMonthBillsPage}
 		class="showBills"
 		on:click={gotoMonthlyBills}
 	>
@@ -86,10 +84,5 @@
 
 	.hidden {
 		display: none;
-	}
-
-	:global .active {
-		border-bottom: 1px solid var(--clr-primary);
-		border-radius: var(--br);
 	}
 </style>
