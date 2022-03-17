@@ -42,12 +42,11 @@
 </script>
 
 {#if $isMounting === false}
-	<Header />
 	<div id="app" dark-theme={$isDark}>
+		<Header />
 		<main>
 			<slot />
 		</main>
-
 		<Footer />
 		<Toast position="top-center" />
 	</div>
@@ -67,8 +66,6 @@
 		align-items: center;
 
 		color: var(--clr-font);
-
-		padding: 1rem 2rem 0 2rem;
 	}
 
 	main {
@@ -82,5 +79,7 @@
 
 		align-items: center;
 		justify-content: center;
+
+		padding: 1rem 2rem 0 2rem;
 	}
 </style>

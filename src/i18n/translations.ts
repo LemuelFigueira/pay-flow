@@ -80,7 +80,6 @@ export default {
 		'Sign In': 'Entrar',
 		'Sign Out': 'Sair',
 		'Sign Up': 'Registrar',
-		'Sign in': 'Entrar',
 		'My Bills': 'Minhas Contas',
 		'Add Bill': 'Adicionar Conta',
 		'Delete Bill': 'Excluir Conta',

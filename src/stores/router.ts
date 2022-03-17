@@ -10,7 +10,7 @@ export const pageTitle = derived([page, t], ([$page]) => {
 		case '/bills/create':
 			return get(t)('Create bills');
 		case '/signIn':
-			return get(t)('Sign in');
+			return get(t)('Sign In');
 		case '/signUp':
 			return get(t)('Sign up');
 		case '/':
