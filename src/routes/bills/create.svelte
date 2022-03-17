@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
+	import { get, writable } from 'svelte/store';
 	import Button from '../../components/Button.svelte';
 	import TextInput from '../../components/Input.svelte';
 	import Loading from '../../components/loading.svelte';
+	import { t } from '../../i18n';
 	import { gotoMonthlyBills } from '../../stores/router';
 	import { toast } from '../../stores/toast';
 	import { createBillsRecursive } from '../../supabase.client';
@@ -11,7 +12,7 @@
 	const name = writable('');
 	const amount = writable<number>();
 	const dueDate = writable<number>(1);
-	const qtdInstallments = writable<number>(1);
+	const qtdInstallments = writable<number>();
 
 	const isSending = writable<boolean>(false);
 
@@ -25,10 +26,10 @@
 				qtdInstallments: $qtdInstallments
 			};
 
-			const anyNullValueOnForm = Object.values(form).some((value) => value === null);
+			const anyNullValueOnForm = Object.values(form).some((value) => !Boolean(value));
 
 			if (anyNullValueOnForm) {
-				throw new Error('Preencha todos os campos');
+				throw new Error(get(t)('Insert all fields'));
 			}
 
 			await createBillsRecursive(form.name, form.amount, form.dueDate, form.qtdInstallments);
@@ -44,21 +45,17 @@
 
 <main>
 	{#if $isSending}
-		<Loading />
+		Enviando...
 	{:else}
 		<div class="content">
-			<TextInput bind:value={$name} placeholder="Digite um nome" />
-			<TextInput number bind:value={$amount} placeholder="Digite o valor" />
-			<TextInput range max={28} bind:value={$dueDate} placeholder="Dia de vencimento" />
-			<TextInput
-				number
-				bind:value={$qtdInstallments}
-				placeholder="Digite a quantidade de parcelas"
-			/>
+			<TextInput bind:value={$name} placeholder={$t('Name')} />
+			<TextInput number bind:value={$amount} placeholder={$t('Amount')} />
+			<TextInput range max={28} bind:value={$dueDate} placeholder={$t('Billing day')} />
+			<TextInput number bind:value={$qtdInstallments} placeholder={$t('Installments quantity')} />
 		</div>
 
 		<div class="footer">
-			<Button on:click={handleSendForm}>Enviar</Button>
+			<Button on:click={handleSendForm}>{$t('Confirm')}</Button>
 		</div>
 	{/if}
 </main>

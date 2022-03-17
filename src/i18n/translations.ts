@@ -29,10 +29,6 @@ export default {
 		'Delete Bill': 'Delete Bill',
 		Confirm: 'Confirm',
 		Cancel: 'Cancel',
-		'Name of bill': 'Name of bill',
-		'Due date': 'Due date',
-		Amount: 'Amount',
-		'Installments Quantity': 'Installments Quantity',
 		paid: 'paid',
 		paids: 'paids',
 		'Bills already exists': 'Bills already exists',
@@ -52,7 +48,12 @@ export default {
 		'Create bill': 'Create bill',
 		'Create bills': 'Create bills',
 		Home: 'Home',
-		'Must be signed': 'Must be signed'
+		'Must be signed': 'Must be signed',
+		'Insert all fields': 'Insert all fields',
+		Name: 'Name',
+		Amount: 'Amount',
+		'Billing day': 'Billing day',
+		'Installments quantity': 'Installments quantity'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -85,10 +86,6 @@ export default {
 		'Delete Bill': 'Excluir Conta',
 		Confirm: 'Confirmar',
 		Cancel: 'Cancelar',
-		'Name of bill': 'Nome da Conta',
-		'Due date': 'Data de Vencimento',
-		Amount: 'Valor',
-		'Installments Quantity': 'Quantidade de Parcelas',
 		paid: 'pago',
 		paids: 'pagos',
 		'Bills already exists': 'Contas já existem',
@@ -108,6 +105,11 @@ export default {
 		'Create bill': 'Criar Conta',
 		'Create bills': 'Criar Contas',
 		Home: 'Início',
-		'Must be signed': 'Você deve estar logado'
+		'Must be signed': 'Você deve estar logado',
+		'Insert all fields': 'Por favor, preencha todos os campos',
+		Name: 'Nome',
+		Amount: 'Valor',
+		'Billing day': 'Dia de Vencimento',
+		'Installments quantity': 'Quantidade de Parcelas'
 	}
 };
