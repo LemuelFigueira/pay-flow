@@ -1,16 +1,41 @@
 <script lang="ts">
-	export let value: string;
+	export let value: string | number;
 	export let placeholder: string;
 	export let password: boolean = false;
+	export let number: boolean = false;
+	export let range: boolean = false;
+	export let min: number = 1;
+	export let max: number = 10;
 </script>
 
-{#if !password}
-	<input type="text" bind:value {placeholder} />
-{:else if password}
+{#if password}
 	<input type="password" bind:value {placeholder} />
+{:else if number}
+	<input type="number" bind:value {placeholder} />
+{:else if range}
+	<div class="range">
+		<span>
+			{placeholder || 'valor'}: {value}
+		</span>
+		<input type="range" {min} {max} bind:value {placeholder} />
+	</div>
+{:else}
+	<input bind:value {placeholder} />
 {/if}
 
 <style type="text/scss">
+	.range {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		gap: 1rem;
+
+		width: 100%;
+		input {
+			flex: 1;
+		}
+	}
 	input {
 		border: 2px solid var(--border-inactive);
 		padding: 5px;

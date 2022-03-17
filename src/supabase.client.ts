@@ -56,11 +56,18 @@ export async function createBillsRecursive(
 	p_installments_qtd = 1
 ) {
 	try {
+		const user = get(userStore);
+
+		if (!user) {
+			throw new Error(get(t)('Must be signed'));
+		}
+
 		const { data, error, status } = await supabase.rpc('sp_se_create_bill_recursive', {
 			p_name,
 			p_amount,
 			p_billing_date,
-			p_installments_qtd
+			p_installments_qtd,
+			p_user_id: user.id
 		});
 
 		if (error) {

@@ -3,7 +3,7 @@
 
 	import { writable } from 'svelte/store';
 	import Button from '../components/Button.svelte';
-	import TextInput from '../components/TextInput.svelte';
+	import TextInput from '../components/Input.svelte';
 	import { email, password, status } from '../stores/auth';
 	import { toast } from '../stores/toast';
 	import { signIn, userStore } from '../supabase.client';

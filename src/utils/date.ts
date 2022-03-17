@@ -13,3 +13,7 @@ export function formatDate(date: Date): string {
 export function addLeadingZero(number: number): string {
 	return number < 10 ? `0${number}` : `${number}`;
 }
+
+export function getDateFromString(date: Date) {
+	return date.toISOString().split('T')[0];
+}

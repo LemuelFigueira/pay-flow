@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
 	import Button from '../components/Button.svelte';
-	import TextInput from '../components/TextInput.svelte';
+	import TextInput from '../components/Input.svelte';
 	import { email, name, password, status } from '../stores/auth';
 	import { toast } from '../stores/toast';
 	import { signUp } from '../supabase.client';
