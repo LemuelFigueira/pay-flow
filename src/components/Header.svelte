@@ -128,14 +128,6 @@
 		stroke: var(--clr-gray100);
 	}
 
-	[is-dark='N'] {
-		&:hover {
-			color: var(--clr-primary);
-			fill: var(--clr-primary);
-			stroke: var(--clr-primary);
-		}
-	}
-
 	[is-dark='S'] {
 		&:hover {
 			color: yellow;

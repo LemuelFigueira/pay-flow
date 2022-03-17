@@ -51,6 +51,7 @@
 		background: var(--clr-light);
 		[is-active='S'] {
 			background: var(--clr-primary);
+			color: var(--clr-gray100);
 		}
 		box-shadow: var(--lm-shadow-active);
 		z-index: 1;
@@ -58,7 +59,10 @@
 		min-width: 80px;
 
 		border-radius: var(--br);
-		padding: 0.5rem;
+
+		span {
+			padding: 0.5rem;
+		}
 	}
 	.placeholder {
 		position: relative;
