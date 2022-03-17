@@ -1,16 +1,23 @@
 import { derived, writable } from 'svelte/store';
+import type { GenericOption } from '../types';
 import translations from './translations';
 
-export const locale = writable('pt-BR');
+export const locale = writable<GenericOption>({
+	label: 'PT-BR',
+	value: 'pt-BR'
+});
 export const locales = Object.keys(translations);
 export const localesOptions = locales.map((locale) => ({
-	label: locale,
+	label: locale.toUpperCase(),
 	value: locale
 }));
 
 export function changeLocale(value: string) {
 	if (!locales.some((locale) => locale === value)) return;
-	locale.set(value);
+	locale.set({
+		label: value.toUpperCase(),
+		value
+	});
 }
 
 function translate(locale, key, vars) {
@@ -37,5 +44,5 @@ export const t = derived(
 	locale,
 	($locale) =>
 		(key, vars = {}) =>
-			translate($locale, key, vars)
+			translate($locale.value, key, vars)
 );

@@ -4,7 +4,7 @@
 	import type { GenericOption } from '../types';
 	const open: Writable<boolean> = writable(false);
 	export let placeholder: string = 'Selecione';
-	export let value: Writable<string | number | null> = writable();
+	export let value: Writable<GenericOption | null> = writable();
 	export let options: GenericOption[] = [];
 	const dispatch = createEventDispatcher();
 	function select(value: string | number | null) {
@@ -16,13 +16,13 @@
 
 <main on:click={() => open.update((old) => !old)}>
 	<span is-active={$open ? 'S' : 'N'} cursor-pointer class="placeholder"
-		>{$value === '' ? placeholder : $value}</span
+		>{$value.label === '' ? placeholder : $value.label}</span
 	>
 	<div class="options" options-open={$open ? 'S' : 'N'}>
-		{#each options.filter((item) => item.value !== $value) as option}
+		{#each options.filter((item) => item.value !== $value.value) as option}
 			<span
 				cursor-pointer
-				option-selected={$value === option.value ? 'S' : 'N'}
+				option-selected={$value.value === option.value ? 'S' : 'N'}
 				class="option"
 				on:click={(e) => select(option.value)}
 				value={option.value}
@@ -56,6 +56,9 @@
 		z-index: 1;
 
 		min-width: 80px;
+
+		border-radius: var(--br);
+		padding: 0.5rem;
 	}
 	.placeholder {
 		position: relative;
@@ -64,7 +67,7 @@
 		background: var(--clr-light);
 		box-shadow: var(--lm-shadow-active);
 		position: absolute;
-		top: 2rem;
+		top: 2.5rem;
 		left: 0;
 		right: 0;
 		overflow: hidden;
@@ -75,6 +78,8 @@
 
 		min-width: max-content;
 		width: 100%;
+
+		border-radius: var(--br);
 	}
 	.option {
 		&:hover {

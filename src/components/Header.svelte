@@ -47,9 +47,14 @@
 		justify-content: space-between;
 		align-self: flex-start;
 
-		background: var(--clr-light);
+		background: var(--clr-primary);
 
 		width: 100%;
+		padding: 1rem;
+	}
+
+	.left span {
+		color: var(--clr-gray100);
 	}
 
 	a,
@@ -118,9 +123,9 @@
 	}
 
 	[is-dark] {
-		color: var(--clr-font);
-		fill: var(--clr-font);
-		stroke: var(--clr-font);
+		color: var(--clr-gray100);
+		fill: var(--clr-gray100);
+		stroke: var(--clr-gray100);
 	}
 
 	[is-dark='N'] {

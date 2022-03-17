@@ -42,9 +42,8 @@
 </script>
 
 {#if $isMounting === false}
+	<Header />
 	<div id="app" dark-theme={$isDark}>
-		<Header />
-
 		<main>
 			<slot />
 		</main>
