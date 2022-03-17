@@ -123,7 +123,6 @@ export async function billsFilteredSearch({
 
 		return data[0].j;
 	} catch (error) {
-		toast.danger(error.message);
 		throw new Error(error.message);
 	}
 }
