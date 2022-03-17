@@ -46,11 +46,4 @@
 
 		color: var(--clr-gray400);
 	}
-
-	.amount {
-		font-size: large;
-		font-weight: 700;
-
-		color: var(--clr-primary);
-	}
 </style>
