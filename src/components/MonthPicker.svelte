@@ -89,6 +89,18 @@
 	.month-picker {
 		display: grid;
 		grid-template-columns: repeat(3, auto);
+
+		@media (max-width: 580px) {
+			grid-template-columns: repeat(2, auto);
+		}
+
+		@media (max-width: 360px) {
+			grid-template-columns: repeat(1, auto);
+
+			max-height: calc(40vh);
+			overflow-y: auto;
+		}
+
 		overflow: hidden;
 		button {
 			width: 100%;
