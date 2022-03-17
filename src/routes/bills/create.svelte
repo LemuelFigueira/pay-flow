@@ -4,7 +4,9 @@
 	import { get, writable } from 'svelte/store';
 	import Button from '../../components/Button.svelte';
 	import TextInput from '../../components/Input.svelte';
+	import MonthPicker from '../../components/MonthPicker.svelte';
 	import { t } from '../../i18n';
+	import { monthNames } from '../../stores/calendar';
 	import { gotoMonthlyBills } from '../../stores/router';
 	import { toast } from '../../stores/toast';
 	import { createBillsRecursive } from '../../supabase.client';
@@ -17,8 +19,10 @@
 
 	const isSending = writable<boolean>(false);
 
-	const baseMonthNumber: number =
+	let baseMonthNumber: number =
 		Number($page.url.searchParams.get('month')) || new Date().getMonth() + 1;
+
+	const showModal = writable(false);
 
 	async function handleSendForm() {
 		try {
@@ -26,7 +30,7 @@
 			const form = {
 				name: $name,
 				amount: $amount,
-				dueDate: getDateFromString(new Date(new Date().setMonth(baseMonthNumber, $dueDate))),
+				dueDate: getDateFromString(new Date(new Date().setMonth(baseMonthNumber - 1, $dueDate))),
 				qtdInstallments: $qtdInstallments
 			};
 
@@ -45,9 +49,29 @@
 			isSending.set(false);
 		}
 	}
+
+	async function handleChangeMonth(value: number) {
+		baseMonthNumber = value;
+	}
 </script>
 
+{#if $showModal === true}
+	<MonthPicker
+		value={baseMonthNumber}
+		on:select={(e) => handleChangeMonth(e.detail.value + 1)}
+		on:close={() => showModal.set(false)}
+	/>
+{/if}
 <main>
+	<div class="header">
+		<span class="title">
+			{$t('Create in')}
+			<strong on:click={() => showModal.update((old) => !old)}>
+				{$t(monthNames[baseMonthNumber - 1])}
+			</strong>
+		</span>
+	</div>
+	<div class:separator={true} />
 	{#if $isSending}
 		Enviando...
 	{:else}
@@ -75,6 +99,31 @@
 
 		gap: 1rem;
 	}
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+
+		width: 100%;
+	}
+
+	.title {
+		font-size: x-large;
+
+		& strong {
+			color: var(--clr-primary);
+			cursor: pointer;
+		}
+	}
+
+	.separator {
+		content: '';
+		display: block;
+		height: 1px;
+		background: var(--clr-primary);
+		width: 100%;
+	}
+
 	.content {
 		display: flex;
 		flex-direction: column;

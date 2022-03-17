@@ -64,6 +64,8 @@
 		padding: 1em;
 		border-radius: 0.2em;
 
+		z-index: 100;
+
 		background: var(--clr-gray100);
 
 		button:not(.selected) {

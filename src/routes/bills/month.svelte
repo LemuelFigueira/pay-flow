@@ -64,7 +64,7 @@
 			class:center={true}
 			class:hidden={!$isSigned}
 			class="addBill"
-			on:click={() => gotoCreateBills('?month=' + ($monthNumber - 1))}
+			on:click={() => gotoCreateBills('?month=' + $monthNumber)}
 		>
 			<Icon size="24" src={AiOutlinePlus} />
 		</button>
@@ -101,6 +101,8 @@
 	.header {
 		display: flex;
 		justify-content: space-between;
+
+		width: 100%;
 	}
 
 	.addBill {
@@ -110,7 +112,7 @@
 		}
 	}
 
-	.separator::before {
+	.separator {
 		content: '';
 		display: block;
 		height: 1px;
