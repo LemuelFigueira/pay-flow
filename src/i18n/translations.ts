@@ -53,7 +53,9 @@ export default {
 		Name: 'Name',
 		Amount: 'Amount',
 		'Billing day': 'Billing day',
-		'Installments quantity': 'Installments quantity'
+		'Installments quantity': 'Installments quantity',
+		from: 'from',
+		Waiting: 'Waiting...'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -109,6 +111,8 @@ export default {
 		Name: 'Nome',
 		Amount: 'Valor',
 		'Billing day': 'Dia de Vencimento',
-		'Installments quantity': 'Quantidade de Parcelas'
+		'Installments quantity': 'Quantidade de Parcelas',
+		from: 'de',
+		Waiting: 'Aguarde...'
 	}
 };

@@ -94,7 +94,7 @@ export async function billsFilteredSearch({
 	p_orderby = 'billing_date',
 	p_page = 0,
 	p_paid = '',
-	p_this_month = 's',
+	p_month_number = new Date().getMonth() + 1,
 	p_user = ''
 }: BillsFilteredSearchParams): Promise<Bill[]> {
 	try {
@@ -103,7 +103,7 @@ export async function billsFilteredSearch({
 			p_name,
 			p_user,
 			p_paid,
-			p_this_month,
+			p_month_number,
 			p_page,
 			p_limit,
 			p_orderby,

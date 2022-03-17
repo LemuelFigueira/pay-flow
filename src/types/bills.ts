@@ -3,7 +3,7 @@ export type BillsFilteredSearchParams = {
 	p_name?: string;
 	p_user?: string;
 	p_paid?: string;
-	p_this_month?: string;
+	p_month_number?: number;
 	p_page: number;
 	p_limit: number;
 	p_orderby: string;
