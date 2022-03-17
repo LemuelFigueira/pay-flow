@@ -1,11 +1,15 @@
 <script lang="ts">
+	import Icon from 'svelte-icons-pack';
+
 	import { writable } from 'svelte/store';
+
+	import AiOutlinePlus from 'svelte-icons-pack/ai/AiOutlinePlus';
 
 	import ItemBill from '../../components/ItemBill.svelte';
 	import MonthPicker from '../../components/MonthPicker.svelte';
 	import { t } from '../../i18n';
 	import { monthNames } from '../../stores/calendar';
-	import { gotoHome } from '../../stores/router';
+	import { gotoCreateBills, gotoHome } from '../../stores/router';
 
 	import { billsFilteredSearch, isSigned } from '../../supabase.client';
 
@@ -46,13 +50,25 @@
 	/>
 {/if}
 <main>
-	<span class:title={true}>
-		{$t('Bills')}
-		{$t('from')}
-		<strong on:click={() => showModal.update((old) => !old)}>
-			{$t(monthNames[$monthNumber - 1])}
-		</strong>
-	</span>
+	<div class="header">
+		<span class:title={true}>
+			{$t('Bills')}
+			{$t('from')}
+			<strong on:click={() => showModal.update((old) => !old)}>
+				{$t(monthNames[$monthNumber - 1])}
+			</strong>
+		</span>
+
+		<button
+			class:pointer={true}
+			class:center={true}
+			class:hidden={!$isSigned}
+			class="addBill"
+			on:click={() => gotoCreateBills('?month=' + ($monthNumber - 1))}
+		>
+			<Icon size="24" src={AiOutlinePlus} />
+		</button>
+	</div>
 
 	<div class="separator" />
 	<div class="bills">
@@ -80,6 +96,18 @@
 		width: 100%;
 
 		gap: 2rem;
+	}
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.addBill {
+		:global svg {
+			color: var(--clr-primary);
+			fill: var(--clr-primary);
+		}
 	}
 
 	.separator::before {

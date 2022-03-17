@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import { get, writable } from 'svelte/store';
 	import Button from '../../components/Button.svelte';
 	import TextInput from '../../components/Input.svelte';
-	import Loading from '../../components/loading.svelte';
 	import { t } from '../../i18n';
 	import { gotoMonthlyBills } from '../../stores/router';
 	import { toast } from '../../stores/toast';
@@ -16,13 +17,16 @@
 
 	const isSending = writable<boolean>(false);
 
+	const baseMonthNumber: number =
+		Number($page.url.searchParams.get('month')) || new Date().getMonth() + 1;
+
 	async function handleSendForm() {
 		try {
 			isSending.set(true);
 			const form = {
 				name: $name,
 				amount: $amount,
-				dueDate: getDateFromString(new Date(new Date().setDate($dueDate))),
+				dueDate: getDateFromString(new Date(new Date().setMonth(baseMonthNumber, $dueDate))),
 				qtdInstallments: $qtdInstallments
 			};
 

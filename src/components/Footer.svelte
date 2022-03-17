@@ -3,12 +3,7 @@
 	import AiOutlinePlus from 'svelte-icons-pack/ai/AiOutlinePlus';
 	import BiLogOut from 'svelte-icons-pack/bi/BiLogIn';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import {
-		gotoMonthlyBills,
-		gotoCreateBills,
-		isMonthBillsPage,
-		isCreateBillsPage
-	} from '../stores/router';
+	import { gotoMonthlyBills, gotoCreateBills } from '../stores/router';
 	import { isSigned, signOut } from '../supabase.client';
 </script>
 
@@ -27,7 +22,7 @@
 		class:center={true}
 		class:hidden={!$isSigned}
 		class="addBill"
-		on:click={gotoCreateBills}
+		on:click={() => gotoCreateBills()}
 	>
 		<Icon size="24" src={AiOutlinePlus} />
 	</button>

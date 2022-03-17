@@ -38,8 +38,8 @@ export function gotoMonthlyBills() {
 	goto('/bills/month');
 }
 
-export function gotoCreateBills() {
-	goto('/bills/create');
+export function gotoCreateBills(param = '') {
+	goto('/bills/create' + param);
 }
 
 export function gotoSignIn() {
