@@ -38,7 +38,7 @@
 	</button>
 </footer>
 
-<style>
+<style lang="scss">
 	footer {
 		display: flex;
 		flex-direction: row;
@@ -48,6 +48,10 @@
 		background: var(--clr-light);
 
 		margin: 1rem 0;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
 	}
 
 	footer .center {

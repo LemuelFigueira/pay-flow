@@ -141,8 +141,8 @@
 	.error {
 		font-size: x-large;
 
-		color: var(--clr-input-error);
-		font-weight: 700;
+		color: var(--clr-gray500);
+		font-weight: 600;
 
 		text-align: center;
 	}

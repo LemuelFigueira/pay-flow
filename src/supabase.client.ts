@@ -111,7 +111,7 @@ export async function billsFilteredSearch({
 		});
 
 		if (data[0].j === null) {
-			throw new Error(get(t)('No bills found'));
+			throw new Error(get(t)('No bills registered'));
 		}
 
 		if (error) {
