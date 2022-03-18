@@ -96,8 +96,13 @@
 		justify-content: center;
 
 		width: 100%;
+		max-width: 500px;
 
 		gap: 2rem;
+
+		@media (min-width: 768px) {
+			width: 60%;
+		}
 	}
 
 	.header {
