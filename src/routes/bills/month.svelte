@@ -106,6 +106,8 @@
 	}
 
 	.addBill {
+		cursor: pointer;
+
 		:global svg {
 			color: var(--clr-primary);
 			fill: var(--clr-primary);
