@@ -1,6 +1,6 @@
 <div />
 
-<style type="text/scss">
+<style lang="scss">
 	div {
 		min-width: 2rem;
 		aspect-ratio: 1/1;
