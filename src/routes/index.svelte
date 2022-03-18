@@ -27,6 +27,10 @@
 		width: 100%;
 
 		background: var(--clr-light);
+
+		@media (min-width: 768px) {
+			width: 60%;
+		}
 	}
 
 	button {
