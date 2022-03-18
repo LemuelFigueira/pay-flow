@@ -13,8 +13,8 @@
 </script>
 
 <main>
-	<button class:primary={true} on:click={gotoSignIn}>{$t('Sign In')}</button>
-	<button class:secondary={true} on:click={gotoSignUp}>{$t('Sign Up')}</button>
+	<button cursor-pointer class:primary={true} on:click={gotoSignIn}>{$t('Sign In')}</button>
+	<button cursor-pointer class:secondary={true} on:click={gotoSignUp}>{$t('Sign Up')}</button>
 </main>
 
 <style lang="scss">
@@ -38,6 +38,10 @@
 
 		font-weight: 700;
 		text-transform: uppercase;
+
+		&:hover {
+			filter: brightness(0.9);
+		}
 	}
 
 	.primary {
