@@ -4,10 +4,15 @@
 
 	import BiMoon from 'svelte-icons-pack/bi/BiMoon';
 	import BiSun from 'svelte-icons-pack/bi/BiSun';
-	import { getContext } from 'svelte';
+	import BiLogOut from 'svelte-icons-pack/bi/BiLogIn';
+
 	import Select from './Select.svelte';
-	import { changeLocale, locale, localesOptions } from '../i18n';
+
+	import { getContext } from 'svelte';
+
+	import { changeLocale, locale, localesOptions, t } from '../i18n';
 	import { pageTitle } from '../stores/router';
+	import { isSigned, signOut } from '../supabase.client';
 
 	const { context: isDarkContext } = getContext('isDark');
 	const { isDark, handleChangeTheme } = isDarkContext;
@@ -16,7 +21,7 @@
 <header>
 	<div class="corner">
 		<div class="left">
-			<a href="/">
+			<a href={$isSigned ? '/bills/month' : '/'}>
 				<div is-dark>
 					<Icon size="36" src={BiSolidStore} />
 					<span>{$pageTitle}</span>
@@ -37,6 +42,9 @@
 					<Icon className="icon" src={BiMoon} />
 				{/if}
 			</button>
+			<button class:action={true} on:click={signOut} style="padding: 1rem;">
+				<Icon className="icon" color="white" size="26" src={BiLogOut} />
+			</button>
 		</div>
 	</div>
 </header>
@@ -53,6 +61,19 @@
 		padding: 1rem;
 	}
 
+	.action {
+		cursor: pointer;
+		font-size: large;
+
+		&:hover {
+			color: var(--clr-gray400);
+		}
+	}
+	@media (max-width: 768px) {
+		.action {
+			display: none;
+		}
+	}
 	.left span {
 		color: var(--clr-gray100);
 	}
