@@ -97,7 +97,7 @@
 
 		width: 100%;
 
-		gap: 1rem;
+		gap: 2rem;
 	}
 
 	.header {
