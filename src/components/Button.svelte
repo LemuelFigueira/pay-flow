@@ -23,7 +23,7 @@
 	{/if}
 </button>
 
-<style type="text/scss">
+<style lang="scss">
 	button {
 		display: flex;
 		align-items: center;

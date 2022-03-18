@@ -29,7 +29,7 @@
 	{/each}
 </div>
 
-<style type="text/scss">
+<style lang="scss">
 	.notifications {
 		position: fixed;
 		margin: 0 auto;

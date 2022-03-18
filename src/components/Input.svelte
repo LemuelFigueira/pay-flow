@@ -23,7 +23,7 @@
 	<input bind:value {placeholder} />
 {/if}
 
-<style type="text/scss">
+<style lang="scss">
 	.range {
 		display: flex;
 		justify-content: flex-start;

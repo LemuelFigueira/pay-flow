@@ -44,7 +44,7 @@
 	<Button status={$status} on:click={() => handleSignIn($email, $password)}>Entrar</Button>
 </main>
 
-<style type="text/scss">
+<style lang="scss">
 	main {
 		display: flex;
 		align-items: center;
