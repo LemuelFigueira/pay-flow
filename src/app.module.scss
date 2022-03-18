@@ -84,6 +84,10 @@ button {
 
 	user-select: none;
 	-webkit-tap-highlight-color: transparent;
+
+	&:active {
+		transform: scale(0.95);
+	}
 }
 
 input,
