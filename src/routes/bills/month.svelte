@@ -107,6 +107,10 @@
 		padding: 3rem 1rem 1rem 1rem;
 		width: 100%;
 
+		@media (min-width: 768px) {
+			width: 60vw;
+		}
+
 		gap: 2rem;
 	}
 
