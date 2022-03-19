@@ -19,8 +19,8 @@
 
 	let dropdown = {
 		isOpen: false,
-		toggle: () => {
-			dropdown.isOpen = !dropdown.isOpen;
+		open: () => {
+			dropdown.isOpen = true;
 		},
 		close: () => {
 			dropdown.isOpen = false;
@@ -41,8 +41,8 @@
 
 	let insertReceiptModal = {
 		isOpen: false,
-		toggle: () => {
-			insertReceiptModal.isOpen = !insertReceiptModal.isOpen;
+		open: () => {
+			insertReceiptModal.isOpen = true;
 		},
 		close: () => {
 			insertReceiptModal.isOpen = false;
@@ -127,7 +127,7 @@
 	</div>
 </Modal>
 
-<main on:click={dropdown.toggle}>
+<main on:click={() => dropdown.open()}>
 	<div class="left">
 		<span class:title={true}>{name}</span>
 		<span class:date={true}>{billing_date}</span>
@@ -142,7 +142,7 @@
 	<footer class="actions" use:clickOutside on:click_outside={dropdown.close}>
 		<button
 			on:click={() => {
-				insertReceiptModal.toggle();
+				insertReceiptModal.open();
 				dropdown.close();
 			}}
 		>
@@ -157,6 +157,8 @@
 
 <style lang="scss">
 	main {
+		cursor: pointer;
+
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 
@@ -189,6 +191,8 @@
 	}
 
 	footer {
+		margin-top: -0.7rem;
+
 		border-bottom-left-radius: var(--br);
 		border-bottom-right-radius: var(--br);
 
@@ -283,5 +287,9 @@
 			border-radius: 0;
 			width: 100%;
 		}
+	}
+
+	button {
+		cursor: pointer;
 	}
 </style>
