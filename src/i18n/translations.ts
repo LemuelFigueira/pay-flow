@@ -57,7 +57,17 @@ export default {
 		'Billing day': 'Billing day',
 		'Installments quantity': 'Installments quantity',
 		from: 'from',
-		Waiting: 'Waiting...'
+		Waiting: 'Waiting...',
+		'See receipt': 'See receipt',
+		'Insert receipt': 'Insert receipt',
+		'Error inserting receipt': 'Error inserting receipt',
+		Change: 'Change',
+		Remove: 'Remove',
+		'Uploading receipt': 'Uploading receipt',
+		'Receipt uploaded': 'Receipt uploaded',
+		'Receipt removed': 'Receipt removed',
+		'Removing receipt': 'Removing receipt',
+		'Invalid image type': 'Invalid image type'
 	},
 	'pt-BR': {
 		January: 'Janeiro',
@@ -117,6 +127,16 @@ export default {
 		'Billing day': 'Dia de Vencimento',
 		'Installments quantity': 'Quantidade de Parcelas',
 		from: 'de',
-		Waiting: 'Aguarde...'
+		Waiting: 'Aguarde...',
+		'See receipt': 'Ver Recibo',
+		'Insert receipt': 'Inserir Recibo',
+		'Error inserting receipt': 'Erro ao inserir recibo',
+		Change: 'Alterar',
+		Remove: 'Remover',
+		'Uploading receipt': 'Enviando recibo',
+		'Receipt uploaded': 'Recibo enviado',
+		'Receipt removed': 'Recibo removido',
+		'Removing receipt': 'Removendo recibo',
+		'Invalid image type': 'Tipo de imagem inválido'
 	}
 };
