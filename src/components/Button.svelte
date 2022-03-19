@@ -3,7 +3,7 @@
 	import HiSolidXCircle from 'svelte-icons-pack/hi/HiSolidXCircle';
 	export let icon: string = '';
 	import Icon from 'svelte-icons-pack';
-	import Loading from './loading.svelte';
+	import Loading from './Loading.svelte';
 	export let status: string = '';
 	$: if (status === 'error')
 		setTimeout(() => {
