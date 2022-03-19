@@ -11,11 +11,12 @@ export type BillsFilteredSearchParams = {
 };
 
 export type Bill = {
-	name: string;
 	amount: number;
 	billing_date: string;
 	dt_criacao: string;
 	id_usuario: string;
-	usuario: string;
+	name: string;
 	qtd: number;
+	receipt: string;
+	usuario: string;
 };

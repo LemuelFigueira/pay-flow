@@ -76,7 +76,12 @@
 			<p>{$t('Waiting')}</p>
 		{:then bills}
 			{#each bills as bill}
-				<ItemBill name={bill.name} amount={bill.amount} billing_date={bill.billing_date} />
+				<ItemBill
+					name={bill.name}
+					amount={bill.amount}
+					billing_date={bill.billing_date}
+					receipt={bill.receipt}
+				/>
 			{/each}
 		{:catch error}
 			<span class:error={true}>{error.message}</span>
