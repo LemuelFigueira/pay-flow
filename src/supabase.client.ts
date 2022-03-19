@@ -3,7 +3,7 @@ import { get, writable } from 'svelte/store';
 import { t } from './i18n';
 import { gotoHome } from './stores/router';
 import { toast } from './stores/toast';
-import type { Bill, BillsFilteredSearchParams } from './types/bills';
+import type { Bill, BillsFilteredSearchParams, InsertBillReceiptParams } from './types/bills';
 
 const supabaseUrl = String(import.meta.env.VITE_SVELTE_APP_SUPABASE_URL);
 const supabaseAnonKey = String(import.meta.env.VITE_SVELTE_APP_SUPABASE_ANON_KEY);
@@ -86,6 +86,7 @@ export async function createBillsRecursive(
 		toast.danger(error.message);
 	}
 }
+
 export async function billsFilteredSearch({
 	p_ascordsc = 'asc',
 	p_id = '',
@@ -122,6 +123,30 @@ export async function billsFilteredSearch({
 		}
 
 		return data[0].j;
+	} catch (error) {
+		throw new Error(error.message);
+	}
+}
+
+export async function insertBillReceipt(
+	{ p_id = '', p_receipt = '' }: InsertBillReceiptParams,
+	cb?: () => void
+): Promise<Bill[]> {
+	try {
+		const { data, error, status } = await supabase.rpc('sp_store_receipt', {
+			p_id,
+			p_receipt
+		});
+
+		if (error) {
+			switch (status) {
+				default:
+					throw new Error(get(t)('Error retrieving bills'));
+			}
+		}
+
+		if (cb) cb();
+		return data;
 	} catch (error) {
 		throw new Error(error.message);
 	}
