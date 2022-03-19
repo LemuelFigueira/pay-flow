@@ -14,9 +14,15 @@ export type Bill = {
 	amount: number;
 	billing_date: string;
 	dt_criacao: string;
+	id: string;
 	id_usuario: string;
 	name: string;
 	qtd: number;
 	receipt: string;
 	usuario: string;
+};
+
+export type InsertBillReceiptParams = {
+	p_id: string;
+	p_receipt: string;
 };
