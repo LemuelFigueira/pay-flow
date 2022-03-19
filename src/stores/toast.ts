@@ -1,15 +1,42 @@
 import { writable, derived } from 'svelte/store';
 
-const TIMEOUT = 2000;
+const TIMEOUT = {
+	default: 2000,
+	danger: 5000,
+	warning: 3000,
+	info: 3000,
+	success: 5000
+};
 
 function createNotificationStore() {
 	const _notifications = writable<{ id: string; type: string; message: string; timeout: number }[]>(
 		[]
 	);
 
-	function send(message: string, type = 'default', timeout: number = TIMEOUT) {
+	function send(message: string, type = 'default', p_id: string) {
+		let timeout = TIMEOUT.default;
+
+		switch (type) {
+			case 'danger':
+				timeout = TIMEOUT.danger;
+				break;
+			case 'warning':
+				timeout = TIMEOUT.warning;
+				break;
+			case 'info':
+				timeout = TIMEOUT.info;
+				break;
+			case 'success':
+				timeout = TIMEOUT.success;
+				break;
+			default:
+				timeout = TIMEOUT.default;
+				break;
+		}
+
 		_notifications.update((state) => {
-			return [...state, { id: id(), type, message, timeout }];
+			const filteredPrevState = state.filter((item) => item.id !== p_id);
+			return [...filteredPrevState, { id: p_id, type, message, timeout }];
 		});
 	}
 
@@ -33,11 +60,11 @@ function createNotificationStore() {
 	return {
 		subscribe,
 		send,
-		default: (msg: string, timeout: number = TIMEOUT) => send(msg, 'default', timeout),
-		danger: (msg: string, timeout: number = TIMEOUT) => send(msg, 'danger', timeout),
-		warning: (msg: string, timeout: number = TIMEOUT) => send(msg, 'warning', timeout),
-		info: (msg: string, timeout: number = TIMEOUT) => send(msg, 'info', timeout),
-		success: (msg: string, timeout: number = TIMEOUT) => send(msg, 'success', timeout)
+		default: (msg: string, p_id = id()) => send(msg, 'default', p_id),
+		danger: (msg: string, p_id = id()) => send(msg, 'danger', p_id),
+		warning: (msg: string, p_id = id()) => send(msg, 'warning', p_id),
+		info: (msg: string, p_id = id()) => send(msg, 'info', p_id),
+		success: (msg: string, p_id = id()) => send(msg, 'success', p_id)
 	};
 }
 
