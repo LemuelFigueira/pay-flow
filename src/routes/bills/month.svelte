@@ -80,7 +80,14 @@
 					name={bill.name}
 					amount={bill.amount}
 					billing_date={bill.billing_date}
+					id={bill.id}
 					receipt={bill.receipt}
+					on:remove={() => {
+						bill.receipt = undefined;
+					}}
+					on:insert={(e) => {
+						bill.receipt = e.detail.value;
+					}}
 				/>
 			{/each}
 		{:catch error}
