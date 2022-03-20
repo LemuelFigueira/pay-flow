@@ -111,15 +111,15 @@ export async function billsFilteredSearch({
 			p_ascordsc
 		});
 
-		if (data[0].j === null) {
-			throw new Error(get(t)('No bills registered'));
-		}
-
 		if (error) {
 			switch (status) {
 				default:
 					throw new Error(get(t)('Error retrieving bills'));
 			}
+		}
+
+		if (data[0].j === null) {
+			throw new Error(get(t)('No bills registered'));
 		}
 
 		return data[0].j;

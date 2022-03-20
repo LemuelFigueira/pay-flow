@@ -11,7 +11,7 @@
 	import { monthNames } from '../../stores/calendar';
 	import { gotoCreateBills, gotoHome } from '../../stores/router';
 
-	import { billsFilteredSearch, isSigned } from '../../supabase.client';
+	import { billsFilteredSearch, isSigned, userStore } from '../../supabase.client';
 
 	const monthNumber = writable<number>(new Date().getMonth() + 1);
 
@@ -25,7 +25,8 @@
 			p_page: 0,
 			p_limit: 30,
 			p_orderby: 'name',
-			p_ascordsc: 'asc'
+			p_ascordsc: 'asc',
+			p_user: $userStore.id
 		});
 
 		return response;
