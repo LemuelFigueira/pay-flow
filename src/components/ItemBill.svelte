@@ -30,13 +30,13 @@
 	const dispatch = createEventDispatcher();
 
 	function insert(value: string) {
-		dispatch('insert', {
+		dispatch('insert_receipt', {
 			value
 		});
 	}
 
 	function remove() {
-		dispatch('remove');
+		dispatch('remove_receipt');
 	}
 
 	let insertReceiptModal = {

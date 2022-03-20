@@ -83,10 +83,10 @@
 					billing_date={bill.billing_date}
 					id={bill.id}
 					receipt={bill.receipt}
-					on:remove={() => {
+					on:remove_receipt={() => {
 						bill.receipt = undefined;
 					}}
-					on:insert={(e) => {
+					on:insert_receipt={(e) => {
 						bill.receipt = e.detail.value;
 					}}
 				/>
