@@ -39,16 +39,7 @@
 
 		isMounting.set(false);
 	});
-
-	import icon512 from '../images/ios/512.png';
-	const appBackgroundColor = '#FFFFFF';
-	const themeColor = '#10B981';
 </script>
-
-<link rel="icon" type="image/png" sizes="512x512" href={icon512} />
-
-<meta name="msapplication-TileColor" content={appBackgroundColor} />
-<meta name="theme-color" content={themeColor} />
 
 {#if $isMounting === false}
 	<div id="app" dark-theme={$isDark}>

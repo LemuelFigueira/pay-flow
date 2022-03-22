@@ -1,11 +1,16 @@
 {
-    "short_name": "sveltekit_pwa",
-    "name": "Sveltekit PWA",
-    "description": "Sveltekit PWA",
-    "start_url": "/",
-    "display": "standalone",
-    "orientation": "portrait",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
-    "icons": []
+	"short_name": "PF",
+	"name": "PayFlow",
+	"description": "Manage your bills and receipts",
+	"start_url": "/",
+	"display": "standalone",
+	"orientation": "natural",
+	"background_color": "#c36a04",
+	"theme_color": "#ffffff",
+	"icons": [
+		{
+			"src": "logo_512.png",
+			"sizes": "512x512"
+		}
+	]
 }
